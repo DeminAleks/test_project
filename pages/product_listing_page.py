@@ -8,28 +8,26 @@ import allure
 
 class ProductListingPage(Base):
 
-    def __init__(self, driver):
-        super().__init__(driver)
-        self.driver = driver
-
     # Locators
 
-    sort_button = "//*[@id='category-sort_wrapper']"
-    sort_ascending_button = "//*[@id='oASC price']"
+    sort_button = "//div[@id='category-sort_wrapper']"
+    sort_ascending_button = "//li[@id='oASC price']"
 
-    filter_plp_level_3_link = "//*[@id='__next']/main/div/div[3]/div[1]/div[1]/ul/li[1]/a"
-    filter_delivery_checkbox = "//*[@id='__next']/main/div/div[2]/div[1]/div[2]/div/div[2]/div[1]/div[2]/span[1]/div/label"
-    filter_brand_checkbox = "//*[@id='__next']/main/div/div[2]/div[1]/div[2]/div/div[2]/div[4]/div[2]/span[1]/div/label"
-    filter_price_slider_min_value = "//*[@id='__next']/main/div/div[2]/div[1]/div[2]/div/div[2]/div[3]/div[2]/div[1]/div/div/div[1]"
-    filter_price_slider_max_value = "//*[@id='__next']/main/div/div[2]/div[1]/div[2]/div/div[2]/div[3]/div[2]/div[1]/div/div/div[2]"
-    filter_price_apply_button = "//*[@id='__next']/main/div/div[2]/div[1]/div[2]/div/div[2]/div[3]/div[2]/div[2]/button"
+    filter_plp_level_3_link = "//a[@class='_1nlq9']"
+    filter_delivery_checkbox = "//label[@for='Доставка']"
+    filter_brand_checkbox = "//label[@for='DAEWOO']"
+    filter_price_slider_min_value = "(//div[@role='slider'])[1]"
+    filter_price_slider_max_value = "(//div[@role='slider'])[2]"
+    filter_price_apply_button = "(//button[@aria-label='Отправить'])[1]"
 
-    product_1_name_plp = "//*[@id='__next']/main/div/div[2]/div[2]/div[1]/div/div[1]/div/div[2]/div/div[2]/div[1]/p/a"
-    product_1_price_plp = "//*[@id='__next']/main/div/div[2]/div[2]/div[1]/div/div[1]/div/div[2]/div/div[2]/div[2]/div/div/div/div/div/div[1]/span[1]"
+    product_1_name_plp = "(//a[@class='_1FP_W'])[2]"
+    product_1_price_plp = "(//span[@class='_3IeOW'])[1]"
 
-    add_to_cart_product_1_button = "//*[@id='__next']/main/div/div[2]/div[2]/div[1]/div/div[1]/div/div[1]/div[1]/button"
-    cart_icon = "//*[@id='__next']/header/div[3]/div/div[4]/ul/li[5]/a"
-    cart_assert_title = "//*[@id='__next']/main/section/div/div[1]/div/div/h1"
+    # add_to_cart_product_1_button = "(//button[@class='_2eEQG _2xhLm _3sJhC _3aV4_ acytc _1OZKl'])[1]"
+    add_to_cart_product_1_button = "(//div[@class='TXgQA _2u1oX'])[1]"
+
+    cart_icon = "//a[@href='/cart']"
+    cart_assert_title = "//h1[contains(text(), 'Корзина')]"
 
     # Getters
 
@@ -149,8 +147,8 @@ class ProductListingPage(Base):
             Logger.add_start_step(method="apply_filter_delivery")
             self.scroll_to_element(self.get_filter_delivery_checkbox())
             self.click_filter_delivery_checkbox()
-            self.checkbox_is_selected_status(self.get_filter_delivery_checkbox())
             self.wait_for_url_contains("shipping_available_by:")
+            self.checkbox_is_selected_status(self.get_filter_delivery_checkbox())
             Logger.add_end_step(url=self.driver.current_url, method="apply_filter_delivery")
 
     def apply_filter_brand(self):
@@ -158,8 +156,8 @@ class ProductListingPage(Base):
             Logger.add_start_step(method="apply_filter_brand")
             self.scroll_to_element(self.get_filter_brand_checkbox())
             self.click_filter_brand_checkbox()
-            self.checkbox_is_selected_status(self.get_filter_brand_checkbox())
             self.wait_for_url_contains("brand:")
+            self.checkbox_is_selected_status(self.get_filter_brand_checkbox())
             Logger.add_end_step(url=self.driver.current_url, method="apply_filter_brand")
 
     def apply_filter_price(self):

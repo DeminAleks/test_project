@@ -9,15 +9,11 @@ class HomePage(Base):
 
     url = 'https://obi.ru/'
 
-    def __init__(self, driver):
-        super().__init__(driver)
-        self.driver = driver
-
     # Locators
 
-    close_cookies_button = "//*[@id='__next']/div[5]/div/button"
-    plp_level_1_link = "//*[@id='__next']/header/div[4]/div/section/div/div/span[2]"
-    plp_level_2_link = "//*[@id='__next']/main/div/div[1]/div/div/div[3]"
+    close_cookies_button = "//button[@class='_3juFS']"
+    plp_level_1_link = "//span[@class='_1htq4'][2]"
+    plp_level_2_link = "//div[@class='_17jmS'][3]"
 
     # Getters
 

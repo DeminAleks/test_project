@@ -22,12 +22,13 @@ class Base():
         date_folder = datetime.now().strftime("%d.%m.%Y")
         time_stamp = datetime.now().strftime("%d.%m.%Y-%H.%M.%S")
         name_screenshot = f'Screenshot_{time_stamp}.png'
-        base_dir = 'C:\\Users\\Alexander_Demin\\PycharmProjects\\pythonTestProject\\screenshots'
-        folder_path = os.path.join(base_dir, date_folder)
+        base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+        screenshots_dir = os.path.join(base_dir, 'screenshots')
+        folder_path = os.path.join(screenshots_dir, date_folder)
         os.makedirs(folder_path, exist_ok=True)
         full_path = os.path.join(folder_path, name_screenshot)
         self.driver.save_screenshot(full_path)
-        print(f"Screenshot saved")
+        print(f"Screenshot saved: {full_path}")
 
     """Method scroll to element"""
     def scroll_to_element(self, element, offset=180):

@@ -8,18 +8,14 @@ import allure
 
 class CartPage(Base):
 
-    def __init__(self, driver):
-        super().__init__(driver)
-        self.driver = driver
-
     # Locators
 
-    product_1_name_cart = "//*[@id='__next']/main/section/div/div[2]/div[1]/div/div/span/div/div/div[1]/div[1]/a"
-    product_1_price_cart = "//*[@id='__next']/main/section/div/div[2]/div[1]/div/div/span/div/div/div[1]/p/span"
-    sum_products_cart = "//*[@id='__next']/main/section/div/div[2]/div[2]/div/div[2]/div[2]/strong"
+    product_1_name_cart = "(//a[@class='BAcw7'])[1]"
+    product_1_price_cart = "(//span[@aria-label='Текущая цена продукта'])[1]"
+    sum_products_cart = "//strong[@class='_2nMVY']"
 
-    navigation_to_checkout_button = "//*[@id='__next']/main/section/div/div[2]/div[2]/div/div[2]/div[4]/div[2]/button"
-    delivery_method_assert_title = "//*[@id='__next']/main/div/div[2]/div/div[1]/p"
+    navigation_to_checkout_button = "//button[@class='_2eEQG _2xhLm _3sJhC _3aV4_ _3EhDt']"
+    delivery_method_assert_title = "//p[contains(text(), 'Способ получения')]"
 
     # Getters
 

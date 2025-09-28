@@ -4,9 +4,10 @@ from datetime import datetime
 
 
 class Logger:
-    base_dir = "C:\\Users\\Alexander_Demin\\PycharmProjects\\pythonTestProject\\logs"
+    base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    logs_dir = os.path.join(base_dir, 'logs')
     log_date = datetime.now().strftime("%d.%m.%Y")
-    log_dir = os.path.join(base_dir, log_date)
+    log_dir = os.path.join(logs_dir, log_date)
     log_time = datetime.now().strftime("%d.%m.%Y-%H.%M.%S")
     file_name = os.path.join(log_dir, f"log_{log_time}.log")
     os.makedirs(log_dir, exist_ok=True)

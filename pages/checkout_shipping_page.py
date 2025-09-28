@@ -9,37 +9,33 @@ import allure
 
 class ShippingPage(Base):
 
-    def __init__(self, driver):
-        super().__init__(driver)
-        self.driver = driver
-
     # Locators
 
-    delivery_method_selector = "//*[@id='product-tabs']/ul/li[2]"
-    delivery_method_selector_assert_title = "//*[@id='product-tabs']/div/div[1]/p[1]"
+    delivery_method_selector = "//button[@class='_1yybK _29sww']"
+    delivery_method_selector_assert_title = "//p[contains(text(), 'Куда доставить?')]"
 
     address_field = "//*[@id='address-form-address-field-suggest']"
-    select_address = "//*[@id='product-tabs']/div/div[1]/form/fieldset/div[1]/div[2]/div"
+    select_address = "(//p[@class='_39EzF'])[1]"
 
     apartment_field = "//*[@id='apartment']"
     floor_field = "//*[@id='floor']"
     entrance_field = "//*[@id='entrance']"
-    express_delivery_toggle_1 = "//*[@id='product-tabs']/div/div[2]/div[2]/div/label"
-    delivery_here_button = "//*[@id='product-tabs']/div/div[2]/div[1]/button[2]"
-    delivery_details_assert_title = "//*[@id='__next']/main/div/div[2]/div/div[1]/div[1]/p"
+    express_delivery_toggle_1 = "//label[@for='express']"
+    delivery_here_button = "//button[@class='_2eEQG _2xhLm _3sJhC _3aV4_ WZ4eg']"
+    delivery_details_assert_title = "//p[contains(text(), 'Детали доставки')]"
 
-    select_services_button = "//*[@id='__next']/main/div/div[2]/div/div[1]/div[2]/div[1]/button"
-    services_assert_title = "//*[@id='html-body']/body/div[4]/div/div/div/p"
-    by_lift_toggle = "//*[@id='product-tabs']/div[1]/div[1]/div[1]/label"
-    apply_selected_services_button = "//*[@id='product-tabs']/button"
+    select_services_button = "//button[@class='_2eEQG _2xhLm _1k0NU _3aV4_ _2k8oq']"
+    services_assert_title = "//p[contains(text(), 'Дополнительные услуги')]"
+    by_lift_toggle = "//label[@for='LIFT']"
+    apply_selected_services_button = "//button[@class='_2eEQG _2xhLm _3sJhC _3aV4_ _16Slb']"
 
-    details_delivery_time = "//*[@id='__next']/main/div/div[2]/div/div[1]/div[2]/div[1]/ul/li[1]/div/p/span[1]"
-    details_pronos = "//*[@id='__next']/main/div/div[2]/div/div[1]/div[2]/div[1]/ul/li[2]/div/span"
-    details_lifting = "//*[@id='__next']/main/div/div[2]/div/div[1]/div[2]/div[1]/ul/li[3]/div/span"
+    details_delivery_time = "//span[@class='qHlDR']"
+    details_pronos = "//span[contains(text(), 'Пронос')]"
+    details_lifting = "//span[contains(text(), 'Подъем')]"
 
-    express_delivery_toggle_2 = "//*[@id='__next']/main/div/div[2]/div/div[1]/div[2]/div[2]/div/label"
-    save_and_continue_button_1 = "//*[@id='__next']/main/div/div[2]/div/div[1]/div[6]/div/button[2]"
-    personal_data_assert_title = "//*[@id='__next']/main/div/div[2]/div/div/p"
+    express_delivery_toggle_2 = "//label[@for='express']"
+    save_and_continue_button_1 = "//button[@class='_2eEQG _2xhLm _3sJhC _3aV4_ WZ4eg']"
+    personal_data_assert_title = "//p[contains(text(), 'Данные получателя')]"
 
     # Getters
 

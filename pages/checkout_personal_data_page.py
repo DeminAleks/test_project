@@ -8,10 +8,6 @@ import allure
 
 class PersonalDataPage(Base):
 
-    def __init__(self, driver):
-        super().__init__(driver)
-        self.driver = driver
-
     # Locators
 
     first_name_field = "//*[@id='firstname']"
@@ -20,13 +16,13 @@ class PersonalDataPage(Base):
     phone_number_field = "//*[@id='telephone']"
     notes_field = "//*[@id='customer_notes']"
 
-    terms_of_service_checkbox = "//*[@id='__next']/main/div/div[2]/div/div/div/form/fieldset/div[7]/div/label/div"
-    subscription_checkbox = "//*[@id='__next']/main/div/div[2]/div/div/div/form/fieldset/div[8]/div/label/div"
-    terms_of_service_checkbox_status = "//*[@id='__next']/main/div/div[2]/div/div/div/form/fieldset/div[7]"
-    subscription_checkbox_status = "//*[@id='__next']/main/div/div[2]/div/div/div/form/fieldset/div[8]"
+    terms_of_service_checkbox = "(//div[@class='_1AaQx'])[1]"
+    subscription_checkbox = "(//div[@class='_1AaQx'])[2]"
+    terms_of_service_checkbox_status = "(//div[@class='TX7r9'])[1]"
+    subscription_checkbox_status = "(//div[@class='TX7r9'])[2]"
 
-    save_and_continue_button_2 = "//*[@id='__next']/main/div/div[2]/div/div/div/form/div/button"
-    order_page_assert_title = "//*[@id='__next']/main/div[1]/div[2]/div/div[1]/div/p"
+    save_and_continue_button_2 = "//button[@class='_2eEQG _2xhLm _3sJhC _3aV4_ _2kk3H']"
+    order_page_assert_title = "//p[contains(text(), 'Оформление заказа')]"
 
     # Getters
 

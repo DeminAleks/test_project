@@ -8,18 +8,14 @@ import allure
 
 class OrderPage(Base):
 
-    def __init__(self, driver):
-        super().__init__(driver)
-        self.driver = driver
-
     # Locators
 
-    sum_products_order = "//*[@id='__next']/main/div[1]/div[2]/div/div[2]/div/div[2]/div[2]/strong"
-    product_1_name_order = "//*[@id='__next']/main/div[1]/div[2]/div/div[1]/div/div/div[4]/div[2]/div/div/div/div/span"
-    full_delivery_address_order = "//*[@id='__next']/main/div[1]/div[2]/div/div[1]/div/div/div[1]/p"
-    full_personal_data_order = "//*[@id='__next']/main/div[1]/div[2]/div/div[1]/div/div/div[2]/div/p"
-    full_delivery_details_order = "//*[@id='__next']/main/div[1]/div[2]/div/div[1]/div/div/div[3]/div/p"
-    order_delivery_time = "//*[@id='__next']/main/div[1]/div[2]/div/div[1]/div/div/div[4]/div[1]/div/p[1]"
+    sum_products_order = "//strong[@class='_2nMVY']"
+    product_1_name_order = "//span[@class='QvxB4']"
+    full_delivery_address_order = "(//p[@class='kfrjR'])[1]"
+    full_personal_data_order = "(//p[@class='kfrjR'])[2]"
+    full_delivery_details_order = "(//p[@class='kfrjR'])[3]"
+    order_delivery_time = "//p[@class='_31ew1']"
 
     # Getters
 
